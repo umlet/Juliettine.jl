@@ -1,0 +1,7 @@
+name = "Juliettine"
+uuid = "f42a8b7e-ed28-475d-a83f-d1f832105fbf"
+authors = ["<info@umlet.com>"]
+version = "0.1.0"
+
+[deps]
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
