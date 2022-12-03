@@ -5,7 +5,6 @@ import Base.Iterators
 
 
 # TODO check Fix1, Fix2..
-# TODO traits for iterable, inRAMalready(=Dict, Set, OrdDict, Array)
 
 
 abstract type PreferredEvaltype end
