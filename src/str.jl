@@ -14,6 +14,7 @@ ew(s::AbstractString) = x -> endswith(x, s)
 
 jn(args...) = join(args...)
 jn(c::Char) = X -> jn(X, c)
+jn(s::AbstractString) = X -> jn(X, s)
 
 
 Base.IteratorSize(::Type{Iterators.PartitionIterator{T}}) where {T<:AbstractString} = Base.SizeUnknown()
