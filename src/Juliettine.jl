@@ -9,16 +9,23 @@ include("str.jl")
 using .Str
 include("str.jl_exports")
 
-include("piper.jl")
-using .Piper
-include("piper.jl_exports")
+include("iter.jl")
+using .Iter
+include("iter.jl_exports")
 
 
-include("conv.jl")  # dep on Str, Piper
+
+include("group.jl")  # dep on Iter
+using .Group
+include("group.jl_exports")
+
+
+
+include("conv.jl")  # dep on Str, Iter
 using .Conv
 include("conv.jl_exports")
 
-include("inout.jl")  # dep on Str, Piper
+include("inout.jl")  # dep on Str, Iter
 using .InOut
 include("inout.jl_exports")
 

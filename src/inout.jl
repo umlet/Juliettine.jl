@@ -5,7 +5,7 @@ module InOut
 
 
 using ..Str
-using ..Piper
+using ..Iter
 
 
 function fiter(f #=..can be IO=#; skip_comments::Bool=true, skip_emptylines::Bool=true, stateful::Bool=true)

@@ -7,7 +7,7 @@ using Juliettine
 
 addone(x) = x + 1
 
-@testset "Piper" begin
+@testset "Iter" begin
     @test fl(isodd, [1, 2, 3]) == [1, 3]
     @test [1, 2, 3] |> fl(isodd) == [1, 3]
 

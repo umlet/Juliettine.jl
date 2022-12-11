@@ -1,7 +1,8 @@
-module Piper
+module Iter
 
 
 import Base.Iterators
+using OrderedCollections
 
 
 # TODO check Fix1, Fix2..
@@ -52,6 +53,7 @@ _mp(f::Function, X, ::PreferredEvaltypeLazy) = imap(f, X)
 _mp(f::Function, X, ::PreferredEvaltypeEager) = cl(imap(f, X))
 mp(f::Function, X) = _mp(f, X, PreferredEvaltype(typeof(X)))
 mp(f::Function) = X -> mp(f, X)
+# TODO remove ::Function, as constructor is also possible!
 
 
 tk(X, n::Int64) = itake(X, n)
@@ -102,5 +104,12 @@ end
 
 
 
-include("piper.jl_exports")
+flbyval(fval::Function, d::AbstractDict) = typeof(d)( ifilter(x->fval(x[2]), d) )
+flbyval(fval::Function) = X -> flbyval(fval, X)
+
+
+sortbyval(d::OrderedDict; args...) = sort(d; byvalue=true, args...)
+
+
+include("iter.jl_exports")
 end # module
