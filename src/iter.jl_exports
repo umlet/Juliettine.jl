@@ -1,6 +1,8 @@
 
 
 export ifilter, itake, imap, ipartition
+export iflatten
+
 export cl, tk, hd, fl, mp, cn, pt
 export is
 

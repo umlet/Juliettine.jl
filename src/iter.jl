@@ -35,7 +35,9 @@ ipartition(args...) =   Iterators.partition(args...)
 ifilter(f) =    X -> ifilter(f, X)
 imap(f) =       X -> imap(f, X)
 itake(n) =      X -> itake(X, n)
-ipartition(n) = X -> ipart(X, n)
+ipartition(n) = X -> ipartition(X, n)
+
+iflatten(args...) = Iterators.flatten(args...)
 
 
 
@@ -62,9 +64,9 @@ tk(n::Int64)    = X -> tk(X, n)
 
 
 pt(X, n) = ipartition(X, n)  # not much of a shortcut..
-pt(s::AbstractVector, n) = cl(ipartition(X, n))
-pt(X::AbstractString, n) = cl(ipartition(X, n))
-pt(n::Int64) = x -> pt(x, n)
+pt(X::AbstractVector, n) = cl(ipartition(X, n))
+pt(s::AbstractString, n) = cl(ipartition(s, n))
+pt(n::Int64) = X -> pt(X, n)
 
 
 hd(X, n::Int64=10) = cl(tk(X, n))
