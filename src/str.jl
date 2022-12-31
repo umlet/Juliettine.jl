@@ -25,8 +25,28 @@ function Base.iterate(itr::Iterators.PartitionIterator{<:AbstractString}, state 
     lastind = min(nextind(itr.c, state, itr.n - 1), lastindex(itr.c))
     return SubString(itr.c, state, lastind), nextind(itr.c, lastind)
 end
-eachsplitn(args...) = ipartition(args...)  # alway stays iteratory for long string
+eachsplitn(args...) = ipartition(args...)  # always stays iteratory for long string
 
+
+# file extension:
+# original logic:
+#   file.txt    -> ".txt"
+#   file        -> ""
+#   .file       -> ""
+#   .           -> ""
+#   file.       -> "."
+# new logic:
+#   file.txt    -> "txt"
+#   file        -> nothing
+#   .file       -> nothing
+#   .           -> nothing
+#   file.       -> ""
+function ext(s)
+    _,e = splitext(s)
+    e == ""  &&  return nothing
+    @assert startswith(e, '.')
+    return chop(e; head=1, tail=0)
+end
 
 
 

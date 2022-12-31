@@ -83,25 +83,6 @@ is(T::Type) = x -> isa(x, T)
 
 
 
-# file extension:
-# original logic:
-#   file.txt    -> ".txt"
-#   file        -> ""
-#   .file       -> ""
-#   .           -> ""
-#   file.       -> "."
-# new logic:
-#   file.txt    -> "txt"
-#   file        -> nothing
-#   .file       -> nothing
-#   .           -> nothing
-#   file.       -> ""
-function ext(s)
-    _,e = splitext(s)
-    e == ""  &&  return nothing
-    @assert startswith(e, '.')
-    return chop(e; head=1, tail=0)
-end
 
 
 

@@ -6,8 +6,6 @@ export iflatten
 export cl, tk, hd, fl, mp, cn, pt
 export is
 
-export ext
-
 export flbyval
 
 export sortbyval
